@@ -6,6 +6,8 @@ using UnityEngine;
 public class SampleScene : MonoBehaviourPunCallbacks
 {
     private void Start() {
+        // プレイヤー自身の名前を"Player"に設定する
+        PhotonNetwork.NickName = "Player";
         // PhotonServerSettingsの設定内容を使ってマスターサーバーへ接続する
         PhotonNetwork.ConnectUsingSettings();
     }

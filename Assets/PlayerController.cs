@@ -4,12 +4,14 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IPunObservable
 {
+    [Header("移動系")]
     /// <summary>
     /// 移動速度
     /// </summary>
     [SerializeField]
     private float _velocity = 5f;
 
+    [Header("スタミナ系")]
     /// <summary>
     /// 最大スタミナ
     /// </summary>

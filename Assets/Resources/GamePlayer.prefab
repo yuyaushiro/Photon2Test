@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 9182096016562400755}
   - component: {fileID: 2488046480685333353}
   - component: {fileID: -6001166304842607146}
+  - component: {fileID: 3580892373940852750}
   - component: {fileID: -8552168084754688391}
   m_Layer: 0
   m_Name: GamePlayer
@@ -174,7 +175,21 @@ MonoBehaviour:
   _maxStamina: 6
   _decreaseRate: 1
   _recoveryRate: 2
-  _staminaBar: {fileID: 0}
+  _staminaBar: {fileID: 5434923431381426294}
+--- !u!114 &3580892373940852750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926926483302694900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6b9cf712ef2f542b32cfac808ece46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4743110515083414525, guid: 9b51a5b4c45a54c41a205bd1f0f2d324,
+    type: 3}
 --- !u!114 &-8552168084754688391
 MonoBehaviour:
   m_ObjectHideFlags: 0

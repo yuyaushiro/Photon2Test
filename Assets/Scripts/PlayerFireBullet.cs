@@ -19,12 +19,14 @@ public class PlayerFireBullet : MonoBehaviourPunCallbacks
                 var currentPosition = mainCamera.ScreenToWorldPoint(mousePosition);
                 var direction = currentPosition - transform.position;
 
-                FireBullet(direction);
+                //FireBullet(direction);
+                photonView.RPC(nameof(FireBullet), RpcTarget.All, direction);
             }
         }
     }
 
     // 弾を発射するメソッド
+    [PunRPC]
     private void FireBullet(Vector3 direction)
     {
         var bullet = Instantiate(bulletPrefab);

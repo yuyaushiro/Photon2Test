@@ -6,6 +6,8 @@ public class PlayerFireBullet : MonoBehaviourPunCallbacks
     [SerializeField]
     private Bullet bulletPrefab = default;
 
+    private int nextBulletId = 0;
+
     private void Update()
     {
         if (photonView.IsMine)
@@ -20,16 +22,17 @@ public class PlayerFireBullet : MonoBehaviourPunCallbacks
                 var direction = currentPosition - transform.position;
 
                 //FireBullet(direction);
-                photonView.RPC(nameof(FireBullet), RpcTarget.All, direction);
+                // 弾を発射するたびに弾のIDを1ずつ増やしていく
+                photonView.RPC(nameof(FireBullet), RpcTarget.All, nextBulletId++, direction);
             }
         }
     }
 
     // 弾を発射するメソッド
     [PunRPC]
-    private void FireBullet(Vector3 direction)
+    private void FireBullet(int id, Vector3 direction)
     {
         var bullet = Instantiate(bulletPrefab);
-        bullet.Init(transform.position, direction);
+        bullet.Init(id, photonView.OwnerActorNr, transform.position, direction);
     }
 }
